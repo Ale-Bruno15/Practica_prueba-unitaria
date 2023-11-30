@@ -1,25 +1,27 @@
-name: Ejecutar Pruebas
+name: Pruebas Unitarias
 
 on:
   push:
     branches:
-      - main  # Cambia esto al nombre de tu rama principal si es diferente
+      - '*' # o el nombre de tu rama principal
+  pull_request:
+    branches:
+      - main # o el nombre de tu rama principal
 
 jobs:
-  pruebas:
+  test:
     runs-on: ubuntu-latest
 
     steps:
-    - name: Checkout del código fuente
-      uses: actions/checkout@v2
+      - uses: actions/checkout@v2
 
-    - name: Configurar Node.js
-      uses: actions/setup-node@v4
-      with:
-        node-version: '14'
+      - name: Configurar Node.js
+        uses: actions/setup-node@v2
+        with:
+          node-version: '14'
 
-    - name: Instalar dependencias
-      run: npm install
+      - name: Instalar dependencias
+        run: npm install
 
-    - name: Ejecutar pruebas
-      run: npm test
+      - name: Ejecutar pruebas
+        run: npm test
