@@ -9,7 +9,7 @@ test('Imprime ¡Hola, Mundo! en la consola', () => {
   holaMundo();
 
   // Verifica que la función haya impreso el mensaje correcto
-  expect(consoleSpy).toHaveBeenCalledWith('¡Hola, itla!');
+  expect(consoleSpy).toHaveBeenCalledWith('¡Hola, Mundo!');
 
   // Restaura la función original de la consola después de la prueba
   consoleSpy.mockRestore();
